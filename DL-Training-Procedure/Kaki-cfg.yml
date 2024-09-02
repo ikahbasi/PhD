@@ -1,0 +1,10 @@
+path:
+    inp: /home/ekarkooti/Documents
+    catalog: /media/ekarkooti/ext4/Kahbasi-PhD/Kaki/Catalog-get-1403-06-10/kaki_all.out
+    stream:  /media/ekarkooti/ext4/Kahbasi-PhD/Kaki/raw-gcf-data
+    network_details: /media/ekarkooti/ext4/Kahbasi-PhD/Kaki/Kaki_station-sensor-region-coords.csv
+    #
+    dataset: ./Kaki-Dataset-All_1403-06-12
+    model:
+        path: ./model
+        name: PhaseNet_Kaki_1403-06
