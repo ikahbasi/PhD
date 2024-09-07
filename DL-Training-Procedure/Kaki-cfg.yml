@@ -1,10 +1,27 @@
+cut_time:
+    before: 60
+    after: 60
+filter:
+    apply: False
+    low: 1
+    high: 10
 path:
     inp: /home/ekarkooti/Documents
     catalog: /media/ekarkooti/ext4/Kahbasi-PhD/Kaki/Catalog-get-1403-06-10/kaki_all.out
-    stream:  /media/ekarkooti/ext4/Kahbasi-PhD/Kaki/raw-gcf-data
+    #stream:  /media/ekarkooti/ext4/Kahbasi-PhD/Kaki/raw-gcf-data
+    stream_root: /home/ekarkooti/Apps/seiscomp/var/lib/archive
+    stream_pattern: '{time.year}/*/HH*.D/*.*..*.D.{time.year}.{time.julday}'
     network_details: /media/ekarkooti/ext4/Kahbasi-PhD/Kaki/Kaki_station-sensor-region-coords.csv
     #
-    dataset: ./Kaki-Dataset-All_1403-06-12
-    model:
-        path: ./model
-        name: PhaseNet_Kaki_1403-06
+    dataset: ./Kaki-Dataset-All_1403-06-17
+    dl_model: ./Kaki-Models/Kaki-DL-1403-06-17
+    
+
+training:
+    batch_size: 256
+    num_workers: 4 # The number of threads used for loading data
+    learning_rate: 1e-4
+    epochs: 2
+    #
+    weights_docstring: The first try of Training a model with Iranian Dataset. PhaseNet architecture was trained with the Kaki dataset. The dataset selected randomly.
+    version_str: 1
