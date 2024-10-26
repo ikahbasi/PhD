@@ -1,0 +1,32 @@
+cut_time:
+    before: 5
+    after: 15
+noisepad:
+    before: 55
+    after: 45
+    std_start: 3
+    std_end: 3
+filter:
+    apply: False
+    low: 1
+    high: 10
+path:
+    inp: /home/ekarkooti/Documents
+    catalog: E:\Kahbasi-PhD\Kaki\Catalog-get-1403-06-10\kaki_all.out
+    #stream:  /media/ekarkooti/ext4/Kahbasi-PhD/Kaki/raw-gcf-data
+    stream_root: C:\Users\ikahbasi\Documents\SeisComp-Format
+    stream_pattern: '{time.year}/*/HH*.D/*.*..*.D.{time.year}.{time.julday}'
+    network_details: E:\Kahbasi-PhD\Kaki\Kaki_station-sensor-region-coords.csv
+    #
+    dataset: C:\Users\ikahbasi\Documents\MEGA\PhD\DataSets\Kaki-Dataset-All_1403-07-13
+    dl_model: ./Kaki-Models/Kaki-DL-14030701
+    
+
+training:
+    batch_size: 256
+    num_workers: 8 # The number of threads used for loading data
+    learning_rate: 1e-2
+    epochs: 5
+    #
+    weights_docstring: Training Data with Noise padding.
+    version_str: 1.1
