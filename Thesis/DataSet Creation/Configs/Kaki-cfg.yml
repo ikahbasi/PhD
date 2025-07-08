@@ -1,0 +1,43 @@
+#jupyter nbconvert --execute --to html test-run-with-command-line.ipynb
+#jupyter nbconvert --to ipynb --execute ./test-run-with-command-line.ipynb --output "1403-08-27.ipynb"
+log:
+    mode: both
+    # Note: The name and path of the log file are set in the settings section for each code.
+    filename_prefix: Kaki
+    filename: now # if set to "now", the current date set as the logfile name.
+    filepath: None # Set in the subset config.
+    level: INFO
+    format: "%(asctime)s - %(levelname)s - %(message)s"
+
+mk_dataset:
+    cut_time:
+        before: 5
+        after: 25
+    zero_pad:
+        before: 0
+        after: 0
+    noisepad:
+        before: 0
+        after: 0
+        std_start: 2
+        std_end: 2
+    filter:
+        apply: False
+        low: 1
+        high: 10
+    autolabeling: False
+    save_streams: False
+    path:
+        inputs:
+            catalog: F:\Catalogs\Kaki.out
+            stream_root: F:\Local_Network_Data-SeisComP\Kaki
+            network_details: F:\Network_Details\Kaki.csv
+            stream_pattern: '{time.year}/KK/*/HH*.D/*.*.*.*.D.{time.year}.{time.julday:03d}' # Note: Check Network!
+        outputs:
+            dataset: 'F:\DataSets-Local\Kaki-Dataset_{datetime_str}'
+            log:
+                filename: now
+
+dataset_test:
+    path:
+        dataset: F:\DataSets-Local\Kaki-Dataset_2025-04-19T10-37-48
