@@ -10,6 +10,13 @@ log:
     format: "%(asctime)s - %(levelname)s - %(message)s"
 
 mk_dataset:
+    parameters:
+        dimension_order: CW
+        component_order: ZNE
+        sampling_rate: 100
+        measurement: velocity
+        unit: counts
+        instrument_response: not restituted
     cut_time:
         before: 5
         after: 25
@@ -17,6 +24,7 @@ mk_dataset:
         before: 0
         after: 0
     noisepad:
+        apply: False
         before: 0
         after: 0
         std_start: 2
@@ -40,4 +48,4 @@ mk_dataset:
 
 dataset_test:
     path:
-        dataset: F:\DataSets-Local\Kaki-Dataset_2025-04-19T10-37-48
+        dataset: F:\DataSets-Local\Kaki-Dataset_2025-07-09T20-53-05
