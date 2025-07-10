@@ -3,12 +3,20 @@
 log:
     mode: both
     # Note: The name and path of the log file are set in the settings section for each code.
+    filename_prefix: Ilam_mk-dataset
     filename: now # if set to "now", the current date set as the logfile name.
     filepath: None # Set in the subset config.
     level: INFO
     format: "%(asctime)s - %(levelname)s - %(message)s"
 
 mk_dataset:
+    parameters:
+        dimension_order: CW
+        component_order: ZNE
+        sampling_rate: 100
+        measurement: velocity
+        unit: counts
+        instrument_response: not restituted
     cut_time:
         before: 5
         after: 25
@@ -16,6 +24,7 @@ mk_dataset:
         before: 0
         after: 0
     noisepad:
+        apply: False
         before: 0
         after: 0
         std_start: 2
@@ -28,15 +37,11 @@ mk_dataset:
     save_streams: False
     path:
         inputs:
-            catalog: X:\Catalogs\Ilam.out
-            stream_root: X:\Local_Network_Data-SeisComP\Ilam
-            network_details: X:\Network_Details\Ilam.csv
+            catalog: F:\Catalogs\Ilam.out
+            stream_root: F:\Local_Network_Data-SeisComP\Ilam
+            network_details: F:\Network_Details\Ilam.csv
             stream_pattern: '{time.year}/IL/*/HH*.D/*.*.*.*.D.{time.year}.{time.julday:03d}' # Note: Check Network!
         outputs:
-            dataset: 'Y:\DataSets\Ilam-Dataset_{datetime_str}'
+            dataset: 'F:\DataSets-Local\Ilam-Dataset_{datetime_str}'
             log:
                 filename: now
-
-dataset_test:
-    path:
-        dataset: Y:\DataSets\Ilam-Dataset_2025-04-13T12-42-42

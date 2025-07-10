@@ -42,6 +42,6 @@ mk_dataset:
             network_details: F:\Network_Details\Ahar.csv
             stream_pattern: '{time.year}/AH/*/HH*.D/*.*.*.*.D.{time.year}.{time.julday:03d}' # Note: Check Network!
         outputs:
-            dataset: 'F:\DataSets-Local\Ahar-Dataset_{datetime_str}'
+            dataset: 'F:\DataSets-Local\Ahar-Dataset_2025-07-10T16-58-27'
             log:
                 filename: now

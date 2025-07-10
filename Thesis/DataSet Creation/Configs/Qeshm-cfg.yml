@@ -3,12 +3,20 @@
 log:
     mode: both
     # Note: The name and path of the log file are set in the settings section for each code.
+    filename_prefix: Qeshm_mk-dataset
     filename: now # if set to "now", the current date set as the logfile name.
     filepath: None # Set in the subset config.
     level: INFO
     format: "%(asctime)s - %(levelname)s - %(message)s"
 
 mk_dataset:
+    parameters:
+        dimension_order: CW
+        component_order: ZNE
+        sampling_rate: 100
+        measurement: velocity
+        unit: counts
+        instrument_response: not restituted
     cut_time:
         before: 5
         after: 25
@@ -16,6 +24,7 @@ mk_dataset:
         before: 0
         after: 0
     noisepad:
+        apply: False
         before: 0
         after: 0
         std_start: 2
@@ -28,15 +37,11 @@ mk_dataset:
     save_streams: False
     path:
         inputs:
-            catalog: X:\Catalogs\Qeshm.out
-            stream_root: X:\Local_Network_Data-SeisComP\Qeshm
-            network_details: X:\Network_Details\Qeshm.csv
+            catalog: F:\Catalogs\Qeshm.out
+            stream_root: F:\Local_Network_Data-SeisComP\Qeshm
+            network_details: F:\Network_Details\Qeshm.csv
             stream_pattern: '{time.year}/QM/*/HH*.D/*.*.*.*.D.{time.year}.{time.julday:03d}'
         outputs:
-            dataset: 'Y:\DataSets\Qeshm-Dataset_{datetime_str}'
+            dataset: 'F:\DataSets-Local\Qeshm-Dataset_{datetime_str}'
             log:
                 filename: now
-
-dataset_test:
-    path:
-        dataset: Y:\DataSets\Qeshm-Dataset_2025-04-12T14-50-37

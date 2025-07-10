@@ -1,0 +1,46 @@
+dataset_test:
+    path:
+        dataset: F:\DataSets-Local\Qeshm-Dataset_2025-04-12T14-50-37
+log:
+    filename: now
+    filename_prefix: Qeshm_mk-dataset
+    filepath: None
+    format: '%(asctime)s - %(levelname)s - %(message)s'
+    level: INFO
+    mode: both
+mk_dataset:
+    autolabeling: false
+    cut_time:
+        after: 25
+        before: 5
+    filter:
+        apply: false
+        high: 10
+        low: 1
+    noisepad:
+        after: 0
+        apply: false
+        before: 0
+        std_end: 2
+        std_start: 2
+    parameters:
+        component_order: ZNE
+        dimension_order: CW
+        instrument_response: not restituted
+        measurement: velocity
+        sampling_rate: 100
+        unit: counts
+    path:
+        inputs:
+            catalog: F:\Catalogs\Qeshm.out
+            network_details: F:\Network_Details\Qeshm.csv
+            stream_pattern: '{time.year}/QM/*/HH*.D/*.*.*.*.D.{time.year}.{time.julday:03d}'
+            stream_root: F:\Local_Network_Data-SeisComP\Qeshm
+        outputs:
+            dataset: F:\DataSets-Local\Qeshm-Dataset_2025-07-10T18-37-43
+            log:
+                filename: now
+    save_streams: false
+    zero_pad:
+        after: 0
+        before: 0
